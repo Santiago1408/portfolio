@@ -3,34 +3,15 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLanguage } from "@/context/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const projects = [
-  {
-    title: "CASA MUESTREOS",
-    description:
-      "A mobile app for filling forms offline with automatic upload when connectivity is restored. Built for field data collection.",
-    tech: ["React Native", "Expo", "Free Maps"],
-  },
-  {
-    title: "Sirvimos Delivery",
-    description:
-      "A restaurant delivery management app that handles receiving, accepting, delivering, and monitoring orders. Features document upload registration and login.",
-    tech: ["Ionic"],
-  },
-  {
-    title: "Sirvimos",
-    description:
-      "A web application that lets restaurants create custom websites by composing customizable components, building unique pages effortlessly.",
-    tech: ["Angular"],
-  },
-];
 
 export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -52,7 +33,7 @@ export default function Projects() {
       cardsRef.current.forEach((card) => {
         gsap.fromTo(
           card,
-          { y: 60, opacity: 0 },
+          { y: 50, opacity: 0 },
           {
             y: 0,
             opacity: 1,
@@ -70,54 +51,79 @@ export default function Projects() {
     return () => ctx.revert();
   }, []);
 
+  const p = t.projects;
+
+  const projectsList = [
+    {
+      title: p.p1Title,
+      subtitle: p.p1Subtitle,
+      description: p.p1Desc,
+      tech: ["Angular", "TypeScript", "Component Architecture", "CSS3"],
+      highlight: p.p1Badge,
+    },
+    {
+      title: p.p2Title,
+      subtitle: p.p2Subtitle,
+      description: p.p2Desc,
+      tech: ["React Native", "REST APIs", "Postman", "Offline Sync"],
+      highlight: p.p2Badge,
+    },
+    {
+      title: p.p3Title,
+      subtitle: p.p3Subtitle,
+      description: p.p3Desc,
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP"],
+      highlight: p.p3Badge,
+    },
+  ];
+
   return (
     <section
       ref={sectionRef}
       id="projects"
-      className="section-padding"
+      className="section-padding bg-card/30 font-[family-name:var(--font-chakra)]"
     >
-      <div className="max-w-content">
-        <div ref={titleRef}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            Featured <span className="text-accent">Projects</span>
+      <div className="max-w-content mx-auto">
+        <div ref={titleRef} className="mb-12">
+          <h2 className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-rajdhani)] uppercase tracking-wide">
+            {p.titleFirst} <span className="text-emerald-400">{p.titleLast}</span>
           </h2>
-          <div className="w-16 h-1 bg-accent rounded-full mb-12" />
+          <div className="w-16 h-1 bg-emerald-500 rounded-none mt-2" />
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((project, i) => (
+          {projectsList.map((project, i) => (
             <div
               key={project.title}
               ref={(el) => { cardsRef.current[i] = el!; }}
-              className="group p-6 rounded-2xl border border-border bg-card hover:border-accent/50 transition-colors"
+              className="group p-6 rounded-sm border border-border bg-background/90 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
-                <svg
-                  className="w-5 h-5 text-accent"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-xs font-mono px-2.5 py-1 rounded-sm bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+                    {project.highlight}
+                  </span>
+                </div>
+
+                <h3 className="text-2xl font-bold font-[family-name:var(--font-rajdhani)] text-foreground group-hover:text-emerald-400 transition-colors uppercase tracking-wide">
+                  {project.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-emerald-400/80 font-mono mb-3 font-semibold">
+                  {project.subtitle}
+                </p>
+
+                <p className="text-sm sm:text-base text-muted leading-relaxed mb-6">
+                  {project.description}
+                </p>
               </div>
 
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-accent transition-colors">
-                {project.title}
-              </h3>
-
-              <p className="text-sm text-muted leading-relaxed mb-4">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((t) => (
+              <div className="flex flex-wrap gap-2 font-mono text-xs sm:text-sm pt-4 border-t border-border/60">
+                {project.tech.map((techItem) => (
                   <span
-                    key={t}
-                    className="px-2 py-0.5 text-xs rounded-full bg-accent/10 text-accent"
+                    key={techItem}
+                    className="px-2.5 py-1 rounded-sm bg-card text-muted border border-border"
                   >
-                    {t}
+                    {techItem}
                   </span>
                 ))}
               </div>

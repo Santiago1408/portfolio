@@ -3,48 +3,15 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLanguage } from "@/context/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const skillCategories = [
-  {
-    title: "Frontend",
-    skills: ["Angular", "Next.js", "React", "React Native", "Expo", "Ionic"],
-  },
-  {
-    title: "Backend",
-    skills: ["Python", "Express", "Flask"],
-  },
-  {
-    title: "Database",
-    skills: ["PostgreSQL"],
-  },
-  {
-    title: "Languages",
-    skills: ["TypeScript", "JavaScript", "C++", "Java"],
-  },
-];
-
-const allSkills = [
-  { name: "Angular", level: 80 },
-  { name: "Next.js", level: 70 },
-  { name: "React", level: 75 },
-  { name: "React Native", level: 70 },
-  { name: "Expo", level: 65 },
-  { name: "Ionic", level: 60 },
-  { name: "Python", level: 75 },
-  { name: "Express", level: 55 },
-  { name: "Flask", level: 50 },
-  { name: "PostgreSQL", level: 60 },
-  { name: "C++", level: 65 },
-  { name: "Java", level: 60 },
-];
 
 export default function Skills() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
-  const barsRef = useRef<HTMLDivElement[]>([]);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -66,32 +33,14 @@ export default function Skills() {
       cardsRef.current.forEach((card) => {
         gsap.fromTo(
           card,
-          { y: 40, opacity: 0, scale: 0.95 },
+          { y: 40, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            scale: 1,
             duration: 0.6,
             ease: "power3.out",
             scrollTrigger: {
               trigger: card,
-              start: "top 85%",
-            },
-          }
-        );
-      });
-
-      barsRef.current.forEach((bar) => {
-        const width = bar.dataset.width;
-        gsap.fromTo(
-          bar,
-          { width: "0%" },
-          {
-            width: width,
-            duration: 1.2,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: bar.closest(".skill-bar-group"),
               start: "top 85%",
             },
           }
@@ -102,56 +51,64 @@ export default function Skills() {
     return () => ctx.revert();
   }, []);
 
+  const s = t.skills;
+
+  const techCategories = [
+    {
+      title: s.c1,
+      skills: ["Angular", "TypeScript", "JavaScript", "Ionic", "Next.js", "React", "React Native", "HTML5", "CSS3", "Tailwind CSS", "Framer Motion"],
+    },
+    {
+      title: s.c2,
+      skills: ["Standalone Components", "Reactive Forms", "Custom Pipes", "Component Architecture", "Responsive Design", "Interfaces", "Enums", "Generics", "Custom Types"],
+    },
+    {
+      title: s.c3,
+      skills: ["Express", "Flask", "Django", "PostgreSQL", "MySQL", "REST APIs"],
+    },
+    {
+      title: s.c4,
+      skills: ["Git", "GitHub", "Jira", "Postman", "Google Cloud", "JWT", "QA Testing", "Bug Fixing", "Version Control", "Kanban"],
+    },
+  ];
+
   return (
     <section
       ref={sectionRef}
       id="skills"
-      className="section-padding bg-card/50"
+      className="section-padding font-[family-name:var(--font-chakra)]"
     >
-      <div className="max-w-content">
-        <div ref={titleRef}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            Skills &amp; <span className="text-accent">Tech Stack</span>
+      <div className="max-w-content mx-auto">
+        <div ref={titleRef} className="mb-12">
+          <h2 className="text-4xl sm:text-5xl font-bold font-[family-name:var(--font-rajdhani)] uppercase tracking-wide">
+            {s.titleFirst} <span className="text-emerald-400">{s.titleLast}</span>
           </h2>
-          <div className="w-16 h-1 bg-accent rounded-full mb-12" />
+          <div className="w-16 h-1 bg-emerald-500 rounded-none mt-2" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {skillCategories.map((cat, i) => (
+        <div className="grid md:grid-cols-2 gap-6">
+          {techCategories.map((cat, i) => (
             <div
               key={cat.title}
               ref={(el) => { cardsRef.current[i] = el!; }}
-              className="p-6 rounded-2xl border border-border bg-background"
+              className="p-6 rounded-sm border border-border bg-card/60 hover:border-emerald-500/40 transition-colors"
             >
-              <h3 className="font-semibold text-accent mb-4">{cat.title}</h3>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="font-bold text-emerald-400 font-[family-name:var(--font-rajdhani)] text-xl sm:text-2xl uppercase tracking-wider mb-4 border-b border-border/80 pb-2">
+                {cat.title}
+              </h3>
+              <div className="flex flex-wrap gap-2.5">
                 {cat.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 text-xs rounded-full border border-border text-muted"
+                    className={`px-3.5 py-1.5 text-xs sm:text-sm rounded-sm border font-mono transition-colors ${
+                      ["Angular", "TypeScript", "Ionic"].includes(skill)
+                        ? "border-emerald-500/50 bg-emerald-500/10 text-emerald-300 font-semibold"
+                        : "border-border bg-background text-muted hover:text-foreground"
+                    }`}
                   >
                     {skill}
                   </span>
                 ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 skill-bar-group">
-          {allSkills.map((skill, i) => (
-            <div key={skill.name}>
-              <div className="flex justify-between text-sm mb-2">
-                <span className="text-foreground">{skill.name}</span>
-                <span className="text-muted">{skill.level}%</span>
-              </div>
-              <div className="h-2 rounded-full bg-border overflow-hidden">
-                <div
-                  ref={(el) => { barsRef.current[i] = el!; }}
-                  data-width={`${skill.level}%`}
-                  className="h-full rounded-full bg-gradient-to-r from-accent to-accent-dim"
-                  style={{ width: "0%" }}
-                />
               </div>
             </div>
           ))}

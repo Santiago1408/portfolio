@@ -3,22 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import HeroCanvas from "./HeroCanvas";
-
-const ROLES = [
-  "Frontend Developer",
-  "React & Next.js Specialist",
-  "UI/UX Motion Enthusiast",
-  "Systems Engineering Student",
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const roleRef = useRef<HTMLDivElement>(null);
-  const descRef = useRef<HTMLParagraphElement>(null);
   const techPillsRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+
+  const { t } = useLanguage();
 
   // Typewriter effect state
   const [roleIndex, setRoleIndex] = useState(0);
@@ -26,15 +21,16 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentFullText = ROLES[roleIndex];
-    let typingSpeed = isDeleting ? 35 : 75;
+    const roles = t.hero.typewriter;
+    const currentFullText = roles[roleIndex % roles.length];
+    let typingSpeed = isDeleting ? 30 : 65;
 
     if (!isDeleting && displayText === currentFullText) {
-      const timeout = setTimeout(() => setIsDeleting(true), 2200);
+      const timeout = setTimeout(() => setIsDeleting(true), 2500);
       return () => clearTimeout(timeout);
     } else if (isDeleting && displayText === "") {
       setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % ROLES.length);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
       return;
     }
 
@@ -47,7 +43,7 @@ export default function Hero() {
     }, typingSpeed);
 
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex]);
+  }, [displayText, isDeleting, roleIndex, t.hero.typewriter]);
 
   // GSAP entrance animation
   useEffect(() => {
@@ -56,8 +52,8 @@ export default function Hero() {
 
       tl.fromTo(
         badgeRef.current,
-        { y: -20, opacity: 0, scale: 0.95 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.6 }
+        { y: -20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6 }
       )
         .fromTo(
           titleRef.current,
@@ -68,12 +64,6 @@ export default function Hero() {
         .fromTo(
           roleRef.current,
           { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6 },
-          "-=0.4"
-        )
-        .fromTo(
-          descRef.current,
-          { y: 15, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.6 },
           "-=0.4"
         )
@@ -98,130 +88,134 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative h-screen min-h-screen max-h-screen w-full flex flex-col justify-between overflow-hidden pt-20 pb-6 font-[family-name:var(--font-space-grotesk)]"
+      className="relative h-screen min-h-screen max-h-screen w-full flex flex-col justify-between overflow-hidden pt-20 pb-6 font-[family-name:var(--font-chakra)]"
     >
-      {/* Subtle Interactive Particle Canvas Background */}
+      {/* Dynamic Green Particle Canvas Background */}
       <HeroCanvas />
 
       {/* Clean Cyber Grid Background */}
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)]" />
 
-      {/* Main Content Layout - Left column text, right column blank space */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full my-auto flex-1 flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+      {/* Main Content Layout (Fills 100vh viewport) */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 w-full my-auto flex-1 flex items-center">
+        <div className="flex flex-col items-start w-full">
           
-          {/* Left Column: Text content formatted with futuristic computer typography */}
-          <div className="lg:col-span-8 text-left flex flex-col items-start pr-0 lg:pr-4">
-            
-            {/* Status Badge */}
-            <div
-              ref={badgeRef}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-border bg-card/60 backdrop-blur-md mb-5"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-cyan-400 font-mono text-xs font-semibold tracking-wider uppercase">
-                Frontend Developer
-              </span>
-              <span className="text-muted text-xs hidden sm:inline">•</span>
-              <span className="text-muted text-xs font-mono hidden sm:inline tracking-wide">
-                Available for hire
-              </span>
-            </div>
+          {/* Bigger Status Badge (NO emojis) */}
+          <div
+            ref={badgeRef}
+            className="inline-flex items-center gap-3 px-4 py-2 rounded-sm border border-emerald-500/40 bg-card/90 backdrop-blur-md mb-5 shadow-sm"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-sm h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span className="text-emerald-400 font-mono text-sm sm:text-base md:text-lg font-bold tracking-wider uppercase">
+              {t.hero.roleBadge}
+            </span>
+            <span className="text-muted text-sm hidden sm:inline">•</span>
+            <span className="text-muted text-xs sm:text-sm font-mono hidden sm:inline tracking-wide font-medium">
+              {t.hero.location}
+            </span>
+          </div>
 
-            {/* Futuristic Orbitron Title */}
-            <h1
-              ref={titleRef}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-wide leading-[1.15] text-foreground font-[family-name:var(--font-orbitron)] uppercase"
-            >
-              Hi, I&apos;m <span className="text-cyan-400">Josue Garcia</span>
-            </h1>
+          {/* Main Headline */}
+          <h1
+            ref={titleRef}
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-wider leading-[1.1] text-foreground font-[family-name:var(--font-rajdhani)] uppercase"
+          >
+            {t.hero.nameFirst} <span className="text-emerald-400">{t.hero.nameLast}</span>
+          </h1>
 
-            {/* Futuristic Computer / Terminal Typewriter Role Message */}
-            <div
-              ref={roleRef}
-              className="mt-4 text-lg sm:text-2xl lg:text-3xl font-mono text-foreground font-semibold flex items-center gap-2 min-h-[38px] whitespace-nowrap tracking-tight"
-            >
-              <span className="text-muted">&gt; I build as a</span>
-              <span className="text-cyan-400 font-bold">
-                {displayText}
-              </span>
-              <span className="w-[3px] h-6 sm:h-7 bg-cyan-400 animate-blink inline-block rounded-sm" />
-            </div>
+          {/* Subtitle & Dynamic Role Typewriter */}
+          <div
+            ref={roleRef}
+            className="mt-4 text-lg sm:text-2xl lg:text-3xl font-mono text-foreground font-semibold flex items-center gap-2 min-h-[40px] tracking-tight"
+          >
+            <span className="text-emerald-400 font-bold">&gt; {displayText}</span>
+            <span className="w-[3.5px] h-7 bg-emerald-400 animate-blink inline-block rounded-none" />
+          </div>
 
-            {/* Persona Description */}
-            <p
-              ref={descRef}
-              className="mt-5 text-base sm:text-lg text-muted max-w-2xl leading-relaxed font-[family-name:var(--font-space-grotesk)]"
-            >
-              Crafting responsive, high-performance, and visually captivating web user experiences.
-              Specializing in modern JavaScript frameworks, smooth motion UI, and pixel-perfect design systems.
-            </p>
-
-            {/* Computer Tech Stack Badges */}
-            <div
-              ref={techPillsRef}
-              className="mt-6 flex flex-wrap gap-2 sm:gap-2.5 font-mono"
-            >
-              {["React", "Next.js", "TypeScript", "Tailwind CSS", "GSAP"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-3.5 py-1.5 rounded-lg border border-border bg-card/40 backdrop-blur-md text-xs text-foreground/80 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors cursor-default"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div
-              ref={ctaRef}
-              className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto font-[family-name:var(--font-space-grotesk)]"
-            >
-              <a
-                href="#projects"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-cyan-500 text-background font-semibold hover:bg-cyan-400 transition-colors flex items-center justify-center gap-2 group tracking-wide"
+          {/* Core Highlighted Technologies */}
+          <div
+            ref={techPillsRef}
+            className="mt-6 flex flex-wrap gap-2.5 font-mono"
+          >
+            {["Angular", "TypeScript", "Ionic", "Next.js", "REST APIs", "Git"].map((tech) => (
+              <span
+                key={tech}
+                className={`px-3.5 py-1.5 text-xs sm:text-sm rounded-sm border ${
+                  ["Angular", "TypeScript", "Ionic"].includes(tech)
+                    ? "border-emerald-500/60 bg-emerald-500/10 text-emerald-400 font-semibold"
+                    : "border-border bg-card/60 text-foreground/80"
+                }`}
               >
-                <span>View My Work</span>
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Action Buttons */}
+          <div
+            ref={ctaRef}
+            className="mt-9 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto font-[family-name:var(--font-rajdhani)] text-base"
+          >
+            {/* Primary CTA: Ver proyectos */}
+            <a
+              href="#projects"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-sm bg-emerald-500 text-background font-bold hover:bg-emerald-400 transition-all duration-300 flex items-center justify-center gap-2.5 group tracking-wider uppercase border border-emerald-400"
+            >
+              <span>{t.hero.btnProjects}</span>
+              <div className="relative w-4 h-4 overflow-hidden flex items-center justify-center">
                 <svg
-                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  className="w-4 h-4 transform group-hover:animate-arrow-slide"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </a>
-              <a
-                href="#contact"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-border bg-card/30 backdrop-blur-md text-foreground font-medium hover:border-cyan-400 hover:text-cyan-400 transition-colors text-center tracking-wide"
-              >
-                Get In Touch
-              </a>
-            </div>
+              </div>
+            </a>
 
+            {/* Secondary CTA: Descargar CV */}
+            <a
+              href="/CV_Josue_Garcia.pdf"
+              download="CV_Josue_Garcia.pdf"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-sm border border-emerald-500/40 bg-emerald-950/20 text-emerald-400 font-bold hover:bg-emerald-500 hover:text-background transition-all duration-300 flex items-center justify-center gap-2 tracking-wider uppercase"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              <span>{t.hero.btnCv}</span>
+            </a>
+
+            {/* Tertiary CTA: Contactarme */}
+            <a
+              href="#contact"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-sm border border-border bg-card/40 text-foreground font-bold hover:border-emerald-400 hover:text-emerald-400 transition-all duration-300 text-center tracking-wider uppercase"
+            >
+              {t.hero.btnContact}
+            </a>
           </div>
-
-          {/* Right Column: Left completely blank as requested */}
-          <div className="hidden lg:block lg:col-span-4 pointer-events-none" />
 
         </div>
       </div>
 
+      {/* Smooth Fade Transition Effect between Hero & Experience */}
+      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-background via-background/70 to-transparent pointer-events-none z-20" />
+
       {/* Scroll Down Indicator */}
-      <div className="relative z-10 flex flex-col items-center pb-2 font-mono">
+      <div className="relative z-30 flex flex-col items-center pb-2 font-mono">
         <a
-          href="#about"
-          className="flex flex-col items-center gap-1.5 text-muted/60 hover:text-cyan-400 transition-colors group"
-          aria-label="Scroll to About section"
+          href="#experience"
+          className="flex flex-col items-center gap-1 text-muted/60 hover:text-emerald-400 transition-colors group"
+          aria-label="Scroll to Professional Experience"
         >
           <span className="text-[10px] tracking-widest uppercase opacity-80 group-hover:opacity-100">
             Scroll
           </span>
-          <div className="w-5 h-7 rounded-full border border-muted/30 group-hover:border-cyan-400/50 flex justify-center p-1 transition-colors">
-            <div className="w-1 h-2 rounded-full bg-cyan-400 animate-bounce" />
+          <div className="w-5 h-7 rounded-sm border border-muted/30 group-hover:border-emerald-400/50 flex justify-center p-1 transition-colors">
+            <div className="w-1 h-2 rounded-sm bg-emerald-400 animate-bounce" />
           </div>
         </a>
       </div>

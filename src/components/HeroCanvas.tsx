@@ -61,10 +61,10 @@ export default function HeroCanvas() {
 
     const particles: Particle[] = [];
     const colors = [
-      "rgba(34, 211, 238, ",  // Cyan accent
-      "rgba(56, 189, 248, ",  // Sky blue
-      "rgba(129, 140, 248, ", // Indigo accent
-      "rgba(168, 85, 247, ",  // Purple highlight
+      "rgba(16, 185, 129, ",  // Emerald green
+      "rgba(34, 197, 94, ",   // Green accent
+      "rgba(52, 211, 153, ",  // Light mint green
+      "rgba(74, 222, 128, ",  // Vibrant green
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -83,50 +83,43 @@ export default function HeroCanvas() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw particle connections & updates
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
-        // Move
         p.x += p.vx;
         p.y += p.vy;
 
-        // Wrap boundaries
         if (p.x < 0) p.x = width;
         if (p.x > width) p.x = 0;
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
-        // Draw particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fillStyle = `${p.color}${p.baseAlpha})`;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = "rgba(34, 211, 238, 0.5)";
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = "rgba(16, 185, 129, 0.4)";
         ctx.fill();
 
-        // Mouse interactive line connection
         const dxMouse = mouse.x - p.x;
         const dyMouse = mouse.y - p.y;
         const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
 
         if (distMouse < mouse.radius) {
-          const alpha = (1 - distMouse / mouse.radius) * 0.5;
+          const alpha = (1 - distMouse / mouse.radius) * 0.4;
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
+          ctx.strokeStyle = `rgba(16, 185, 129, ${alpha})`;
           ctx.lineWidth = 1;
           ctx.stroke();
 
-          // Push slightly away from mouse for dynamic feel
           const angle = Math.atan2(dyMouse, dxMouse);
           const force = (mouse.radius - distMouse) / mouse.radius;
           p.x -= Math.cos(angle) * force * 0.8;
           p.y -= Math.sin(angle) * force * 0.8;
         }
 
-        // Particle to particle connections
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx = p.x - p2.x;
@@ -138,7 +131,7 @@ export default function HeroCanvas() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
+            ctx.strokeStyle = `rgba(16, 185, 129, ${alpha})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
