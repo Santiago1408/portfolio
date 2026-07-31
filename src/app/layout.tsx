@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Rajdhani, Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,6 +51,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
         </LanguageProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
