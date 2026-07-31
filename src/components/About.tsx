@@ -59,7 +59,6 @@ export default function About() {
           {/* Narrative text (8 cols) */}
           <div className="lg:col-span-8 space-y-4 text-base sm:text-lg text-muted leading-relaxed">
             <p>{a.p1}</p>
-            <p>{a.p2}</p>
 
             {/* Expandable Extra Paragraphs */}
             {isExpanded && (
@@ -99,7 +98,7 @@ export default function About() {
             {/* Quick photo preview */}
             <div className="relative w-full h-80 rounded-sm overflow-hidden border border-border group">
               <Image
-                src="/profile.jpeg"
+                src="/profile.jpg"
                 alt="Josue Garcia"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -107,7 +106,7 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
             </div>
 
-            {/* Quick Data Grid (No // in title) */}
+            {/* Quick Data Grid */}
             <div className="p-5 rounded-sm border border-border bg-card/60 space-y-4 font-mono text-xs sm:text-sm">
               <h3 className="text-emerald-400 font-bold uppercase tracking-wider text-sm border-b border-border pb-2">
                 {a.quickFacts}

@@ -14,7 +14,6 @@ export default function Experience() {
   const { t } = useLanguage();
 
   const [isE1Expanded, setIsE1Expanded] = useState(false);
-  const [isE2Expanded, setIsE2Expanded] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -97,8 +96,6 @@ export default function Experience() {
               </div>
               <div className="text-left md:text-right font-mono text-xs sm:text-sm text-muted space-y-1">
                 <p className="text-foreground font-semibold">{e.e1.duration}</p>
-                <p>{e.e1.team}</p>
-                <p>{e.e1.management}</p>
               </div>
             </div>
 
@@ -135,15 +132,12 @@ export default function Experience() {
                   
                   <div className="grid md:grid-cols-2 gap-6">
                     
-                    {/* Featured Project: Sirvimos */}
+                    {/* Project: Sirvimos */}
                     <div className="p-5 rounded-sm border border-emerald-500/30 bg-emerald-950/10 hover:border-emerald-500/60 transition-colors">
                       <div className="flex items-center justify-between mb-2">
                         <h5 className="font-bold text-foreground font-[family-name:var(--font-rajdhani)] text-xl">
                           {e.e1.sirvimosTitle}
                         </h5>
-                        <span className="text-xs font-mono px-2 py-0.5 rounded-sm bg-emerald-500/20 text-emerald-300 font-bold">
-                          {e.e1.sirvimosBadge}
-                        </span>
                       </div>
                       <p className="text-sm sm:text-base text-muted leading-relaxed mb-3">
                         {e.e1.sirvimosDesc}
@@ -159,9 +153,11 @@ export default function Experience() {
                         <h5 className="font-bold text-foreground font-[family-name:var(--font-rajdhani)] text-xl">
                           {e.e1.deliveryTitle}
                         </h5>
-                        <span className="text-xs font-mono px-2 py-0.5 rounded-sm bg-amber-500/20 text-amber-300 font-bold">
-                          {e.e1.deliveryBadge}
-                        </span>
+                        {e.e1.deliveryBadge && (
+                          <span className="text-xs font-mono px-2 py-0.5 rounded-sm bg-amber-500/20 text-amber-300 font-bold">
+                            {e.e1.deliveryBadge}
+                          </span>
+                        )}
                       </div>
                       <p className="text-sm sm:text-base text-muted leading-relaxed mb-3">
                         {e.e1.deliveryDesc}

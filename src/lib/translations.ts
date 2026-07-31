@@ -35,8 +35,6 @@ export const translations = {
         country: "Suecia",
         position: "Frontend Developer Intern",
         duration: "Julio 2025 – Enero 2026",
-        team: "",
-        management: "",
         p1: "Realicé mi pasantía profesional en WatchEye AB, empresa sueca dedicada al desarrollo de soluciones tecnológicas comerciales para clientes internacionales.",
         p2: "Ingresé inicialmente como Quality Assurance (QA) realizando pruebas funcionales, documentando incidencias y reportando errores. Posteriormente pasé a corregir los bugs identificados y finalmente me incorporé al equipo de desarrollo Frontend, participando activamente en la implementación de nuevas funcionalidades para productos comerciales utilizando Angular, TypeScript e Ionic.",
         respTitle: "Responsabilidades Clave",
@@ -54,7 +52,6 @@ export const translations = {
         ],
         projectsTitle: "Proyectos Desarrollados en WatchEye AB",
         sirvimosTitle: "Sirvimos",
-        sirvimosBadge: "",
         sirvimosDesc: "Plataforma que permite a restaurantes crear páginas web completamente personalizadas combinando módulos reutilizables configurables (Header, Welcome, History, About Us, Menu, Footer).",
         sirvimosRole: "Mi aporte: Desarrollé gran parte de estos componentes en Angular, implementando múltiples variantes para cada módulo y asegurando su reutilización y mantenibilidad.",
         deliveryTitle: "Aplicación Móvil de Delivery",
@@ -74,7 +71,6 @@ export const translations = {
       titleFirst: "Sobre",
       titleLast: "mí",
       p1: "Soy Frontend Developer con experiencia profesional desarrollando software para productos comerciales.",
-      p2: "",
       p3: "A lo largo de mi formación participé en numerosos proyectos académicos y posteriormente tuve la oportunidad de realizar una pasantía profesional en la empresa sueca WatchEye AB, experiencia que marcó el inicio de mi carrera profesional como desarrollador.",
       p4: "Comencé desempeñando funciones de Quality Assurance (QA), realizando pruebas funcionales e identificando errores dentro de distintas aplicaciones. Posteriormente empecé a corregir los bugs detectados y finalmente pasé a formar parte del equipo de desarrollo Frontend, donde participé activamente en el desarrollo de nuevas funcionalidades para aplicaciones web y móviles.",
       p5: "Esta experiencia me permitió aprender cómo se desarrolla software en un entorno profesional, trabajar con equipos multidisciplinarios y comprender la importancia del código mantenible, la reutilización de componentes y el trabajo colaborativo.",
@@ -99,7 +95,7 @@ export const translations = {
       p2Title: "Aplicación Móvil de Saneamiento de Aguas",
       p2Subtitle: "App Móvil Offline-First para Campo",
       p2Badge: "Desarrollado para DTIC - UMSS",
-      p2Desc: "Aplicación desarrollada para el Departamento de Tecnologías de la Información y Comunicación (DTIC) de la Universidad Mayor de San Simón. Desarrollada para el Centro de Aguas y Saneamiento Ambiental (CASA), esta aplicación permite registrar información de campo sin conexión a Internet y sincronizar automáticamente los datos cuando existe conectividad dentro de la red de la unirsidad.",
+      p2Desc: "Aplicación desarrollada para el Departamento de Tecnologías de la Información y Comunicación (DTIC) de la Universidad Mayor de San Simón. Desarrollada para el Centro de Aguas y Saneamiento Ambiental (CASA), esta aplicación permite registrar información de campo sin conexión a Internet y sincronizar automáticamente los datos cuando existe conectividad dentro de la red de la universidad.",
       p3Title: "Portafolio Web Profesional",
       p3Subtitle: "Showcase de Proyectos y Habilidades",
       p3Badge: "Portafolio Personal",
@@ -197,8 +193,6 @@ export const translations = {
         country: "Sweden",
         position: "Frontend Developer Intern",
         duration: "July 2025 – January 2026",
-        team: "Team: 5 Frontend • 2 Backend",
-        management: "Workflow: Jira (Kanban) • Multilingual",
         p1: "Completed my professional internship at WatchEye AB, a Swedish software company developing commercial solutions for international clients.",
         p2: "Initially joined as Quality Assurance (QA) conducting functional tests, documenting issues, and reporting bugs. Subsequently moved to fixing identified bugs and ultimately joined the Frontend development team, actively implementing new features for commercial products using Angular, TypeScript, and Ionic.",
         respTitle: "Key Responsibilities",
@@ -216,12 +210,11 @@ export const translations = {
         ],
         projectsTitle: "Projects Developed at WatchEye AB",
         sirvimosTitle: "Sirvimos",
-        sirvimosBadge: "FEATURED PROJECT",
         sirvimosDesc: "Platform enabling restaurants to build fully customized websites by combining configurable reusable modules (Header, Welcome, History, About Us, Menu, Footer).",
         sirvimosRole: "My role: Developed a major portion of these components in Angular, building multiple variants for each module ensuring reusability and maintainability.",
         deliveryTitle: "Delivery Mobile Application",
         deliveryBadge: "CONFIDENTIAL PROJECT",
-        deliveryDesc: "Mobile delivery management application built almost end-to-end using Ionic and Angular, which I continue to assist in maintaining.",
+        deliveryDesc: "Mobile application for order management and real-time monitoring, built almost end-to-end using Ionic and Angular, which I continue to assist in maintaining.",
         deliveryRole: "Due to NDA agreements I cannot share screenshots or source code, but I can thoroughly explain its architecture and technical decisions during an interview."
       },
       e2: {
@@ -229,23 +222,22 @@ export const translations = {
         position: "Frontend Developer Intern",
         duration: "Duration: ~4 months",
         location: "Cochabamba, Bolivia",
-        desc: "Participated in developing a mobile application for recording water sanitation field forms. Designed to operate completely offline in remote areas, automatically syncing all collected data with the server via REST APIs once connectivity is restored."
+        desc: "Developed a mobile application for recording water sanitation field forms for the Water and Environmental Sanitation Center (CASA). Designed to operate completely offline in remote areas, automatically syncing all collected data with the server via REST APIs once connectivity is restored to the university network."
       }
     },
     about: {
       titleFirst: "About",
       titleLast: "Me",
-      p1: "I am a 10th-semester Systems Engineering student at Universidad Mayor de San Simón and a Frontend Developer with professional experience building commercial software.",
-      p2: "My interest in programming began during university, where I discovered software engineering was much more than writing code—it was a powerful tool to solve real-world problems through technology.",
-      p3: "Throughout my studies I participated in numerous academic projects and subsequently had the opportunity to complete a professional internship at Swedish company WatchEye AB, marking the start of my professional developer career.",
+      p1: "I am a Frontend Developer with professional experience building software for commercial products.",
+      p3: "Throughout my education I participated in numerous academic projects and subsequently had the opportunity to complete a professional internship at Swedish company WatchEye AB, marking the start of my professional developer career.",
       p4: "I started performing Quality Assurance (QA) duties, executing functional tests and tracking bugs across applications. Later I began resolving identified issues and ultimately joined the Frontend development team, actively creating new web and mobile features.",
-      p5: "This experience allowed me to learn how software is built in a professional environment, collaborate with multidisciplinary teams, and understand the core value of maintainable code and reusable components.",
+      p5: "This experience allowed me to learn how software is built in a professional environment, collaborate with multidisciplinary teams, and understand the core value of maintainable code, component reusability, and teamwork.",
       p6: "Currently I aim to keep growing as a Frontend Developer, specializing primarily in Angular, TypeScript, and modern application development.",
       quickFacts: "Quick Facts",
       locLabel: "Location",
       locValue: "Cochabamba, Bolivia",
       eduLabel: "Education",
-      eduValue: "Systems Engineering • UMSS (10th sem)",
+      eduValue: "Systems Engineering • UMSS",
       devLabel: "Specialty",
       devValue: "Frontend Developer (Angular, TS, Ionic)",
       langLabel: "Language",
@@ -257,15 +249,15 @@ export const translations = {
       p1Title: "Sirvimos",
       p1Subtitle: "Restaurant Website Builder Platform",
       p1Badge: "Featured WatchEye AB Project",
-      p1Desc: "Platform for creating customizable restaurant websites based on Angular. My primary contribution was developing reusable component modules (Header, Menu, History, Footer, etc.) that enable quick custom site composition.",
+      p1Desc: "Platform for creating customizable restaurant websites based on Angular. My primary contribution was developing reusable and customizable component modules (Header, Menu, History, Footer, etc.) that enable building unique pages by combining modules.",
       p2Title: "Water Sanitation Mobile App",
       p2Subtitle: "Offline-First Field Mobile App",
       p2Badge: "Developed for DTIC - UMSS",
-      p2Desc: "Mobile app developed for the ICT Department (DTIC) at UMSS. Enables offline field data collection and automatic cloud synchronization when network connectivity is detected.",
+      p2Desc: "Application developed for the ICT Department (DTIC) at Universidad Mayor de San Simón. Built for the Water and Environmental Sanitation Center (CASA), this app enables offline field data collection and automatic cloud synchronization when connected to the university network.",
       p3Title: "Professional Portfolio Web",
       p3Subtitle: "Showcase of Projects & Skills",
       p3Badge: "Personal Portfolio",
-      p3Desc: "This exact portfolio built using modern Frontend technologies (Next.js, TypeScript, Tailwind CSS, and GSAP) designed to showcase my commercial experience, projects, and technical skills."
+      p3Desc: "This exact portfolio built using modern Frontend technologies (Next.js, TypeScript, Tailwind CSS, and GSAP) designed to showcase my commercial experience, projects, and technical skills clearly and accessibly."
     },
     skills: {
       titleFirst: "Tech &",
@@ -301,7 +293,7 @@ export const translations = {
       titleFirst: "Philosophy &",
       titleLast: "Goals",
       phTitle: "My Work Philosophy",
-      phDesc: "I believe software development goes far beyond writing functional code. My goal is to build applications that are maintainable, scalable, and easy to evolve over time.",
+      phDesc: "I believe software development goes far beyond writing functional code; it must satisfy a demand. My goal is to build applications that are maintainable, scalable, and easy to evolve over time.",
       phSub: "Development Priorities",
       phItems: [
         "Architecture based on reusable components.",
@@ -312,16 +304,16 @@ export const translations = {
         "Continuous learning and adopting modern tooling."
       ],
       goalsTitle: "Professional Goals",
-      g1: "My primary goal is to consolidate as a Frontend Developer specialized in Angular and TypeScript, participating in modern software products that present genuine technical challenges.",
-      g2: "I seek to join teams where I can learn from senior developers, deliver high-quality solutions, and continuously strengthen my knowledge in Frontend architecture, performance, accessibility, and engineering standards.",
+      g1: "My primary goal is to consolidate as a Fullstack Developer specialized in Angular and TypeScript, participating in modern software products that present genuine technical challenges.",
+      g2: "I seek to join teams where I can learn from senior developers, deliver high-quality solutions, and continuously strengthen my knowledge in Frontend, Backend architecture, performance, accessibility, and software engineering standards.",
       gVisionTitle: "Long-term Vision:",
-      gVisionDesc: "Evolutions towards higher technical responsibility roles, designing Frontend architectures, leading dev initiatives, and contributing to scalable, high-impact applications."
+      gVisionDesc: "Evolve towards higher technical responsibility roles, designing Frontend architectures, leading dev initiatives, and contributing to scalable, high-impact applications."
     },
     contact: {
       titleFirst: "Let's Work",
       titleLast: "Together",
       loc: "Cochabamba, Bolivia",
-      desc: "If you are looking for a Frontend Developer with professional experience in Angular, TypeScript, and Ionic, I would be delighted to discuss how I can bring value to your team.",
+      desc: "If you are looking for a Frontend Developer with professional experience, I would be delighted to discuss how I can bring value to your team.",
       sendEmail: "Send Email"
     }
   }
