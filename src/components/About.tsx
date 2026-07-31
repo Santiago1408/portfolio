@@ -98,7 +98,7 @@ export default function About() {
             {/* Quick photo preview */}
             <div className="relative w-full h-80 rounded-sm overflow-hidden border border-border group">
               <Image
-                src="/profile.jpg"
+                src="/profile.jpeg"
                 alt="Josue Garcia"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"

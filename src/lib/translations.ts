@@ -81,7 +81,7 @@ export const translations = {
       eduLabel: "Educación",
       eduValue: "Ingeniería de Sistemas • UMSS",
       devLabel: "Especialidad",
-      devValue: "Frontend Developer (Angular, TS, Ionic)",
+      devValue: "Frontend Developer",
       langLabel: "Idioma",
       langValue: "Inglés B2 (Nivel intermedio-alto)"
     },
@@ -239,7 +239,7 @@ export const translations = {
       eduLabel: "Education",
       eduValue: "Systems Engineering • UMSS",
       devLabel: "Specialty",
-      devValue: "Frontend Developer (Angular, TS, Ionic)",
+      devValue: "Frontend Developer",
       langLabel: "Language",
       langValue: "English B2 (Upper-Intermediate)"
     },
