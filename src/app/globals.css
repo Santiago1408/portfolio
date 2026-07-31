@@ -18,9 +18,12 @@
   --color-muted: var(--muted);
   --color-card: var(--card);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-space-grotesk), var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-orbitron: var(--font-orbitron);
+  --font-space-grotesk: var(--font-space-grotesk);
 }
+
 
 html {
   scroll-behavior: smooth;
