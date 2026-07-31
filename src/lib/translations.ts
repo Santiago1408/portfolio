@@ -35,8 +35,8 @@ export const translations = {
         country: "Suecia",
         position: "Frontend Developer Intern",
         duration: "Julio 2025 – Enero 2026",
-        team: "Equipo: 5 Frontend • 2 Backend",
-        management: "Gestión: Jira (Kanban) • Multilenguaje",
+        team: "",
+        management: "",
         p1: "Realicé mi pasantía profesional en WatchEye AB, empresa sueca dedicada al desarrollo de soluciones tecnológicas comerciales para clientes internacionales.",
         p2: "Ingresé inicialmente como Quality Assurance (QA) realizando pruebas funcionales, documentando incidencias y reportando errores. Posteriormente pasé a corregir los bugs identificados y finalmente me incorporé al equipo de desarrollo Frontend, participando activamente en la implementación de nuevas funcionalidades para productos comerciales utilizando Angular, TypeScript e Ionic.",
         respTitle: "Responsabilidades Clave",
@@ -54,12 +54,12 @@ export const translations = {
         ],
         projectsTitle: "Proyectos Desarrollados en WatchEye AB",
         sirvimosTitle: "Sirvimos",
-        sirvimosBadge: "PROYECTO DESTACADO",
+        sirvimosBadge: "",
         sirvimosDesc: "Plataforma que permite a restaurantes crear páginas web completamente personalizadas combinando módulos reutilizables configurables (Header, Welcome, History, About Us, Menu, Footer).",
         sirvimosRole: "Mi aporte: Desarrollé gran parte de estos componentes en Angular, implementando múltiples variantes para cada módulo y asegurando su reutilización y mantenibilidad.",
         deliveryTitle: "Aplicación Móvil de Delivery",
         deliveryBadge: "PROYECTO CONFIDENCIAL",
-        deliveryDesc: "Aplicación móvil para la gestión de pedidos y entregas desarrollada prácticamente por completo utilizando Ionic y Angular, en la que continúo participando en su mantenimiento.",
+        deliveryDesc: "Aplicación móvil para la gestión de pedidos y monitoreo en tiempo real, desarrollada prácticamente por completo utilizando Ionic y Angular, en la que continúo participando en su mantenimiento.",
         deliveryRole: "Debido a acuerdos de confidencialidad no puedo compartir capturas ni código, pero puedo explicar detalladamente su arquitectura y decisiones técnicas en una entrevista."
       },
       e2: {
@@ -67,14 +67,14 @@ export const translations = {
         position: "Frontend Developer Intern",
         duration: "Duración: ~4 meses",
         location: "Cochabamba, Bolivia",
-        desc: "Participé en el desarrollo de una aplicación móvil destinada al registro de formularios de saneamiento de aguas. La aplicación fue diseñada para funcionar completamente offline en áreas sin conectividad, sincronizando automáticamente toda la información recolectada con el servidor mediante APIs REST una vez restablecida la conexión a Internet."
+        desc: "Desarrollé una aplicación móvil destinada al registro de formularios de saneamiento de aguas para el Centro de Aguas y Saneamiento Ambiental (CASA). La aplicación fue diseñada para funcionar completamente offline en áreas sin conectividad, sincronizando automáticamente toda la información recolectada con el servidor mediante APIs REST una vez restablecida la conexión a la red de la universidad."
       }
     },
     about: {
       titleFirst: "Sobre",
       titleLast: "mí",
-      p1: "Soy estudiante de décimo semestre de Ingeniería de Sistemas en la Universidad Mayor de San Simón y Frontend Developer con experiencia profesional desarrollando software para productos comerciales.",
-      p2: "Mi interés por la programación comenzó durante la universidad, donde descubrí que el desarrollo de software era mucho más que escribir código: era una herramienta para resolver problemas reales mediante tecnología.",
+      p1: "Soy Frontend Developer con experiencia profesional desarrollando software para productos comerciales.",
+      p2: "",
       p3: "A lo largo de mi formación participé en numerosos proyectos académicos y posteriormente tuve la oportunidad de realizar una pasantía profesional en la empresa sueca WatchEye AB, experiencia que marcó el inicio de mi carrera profesional como desarrollador.",
       p4: "Comencé desempeñando funciones de Quality Assurance (QA), realizando pruebas funcionales e identificando errores dentro de distintas aplicaciones. Posteriormente empecé a corregir los bugs detectados y finalmente pasé a formar parte del equipo de desarrollo Frontend, donde participé activamente en el desarrollo de nuevas funcionalidades para aplicaciones web y móviles.",
       p5: "Esta experiencia me permitió aprender cómo se desarrolla software en un entorno profesional, trabajar con equipos multidisciplinarios y comprender la importancia del código mantenible, la reutilización de componentes y el trabajo colaborativo.",
@@ -83,7 +83,7 @@ export const translations = {
       locLabel: "Ubicación",
       locValue: "Cochabamba, Bolivia",
       eduLabel: "Educación",
-      eduValue: "Ingeniería de Sistemas • UMSS (10.º sem)",
+      eduValue: "Ingeniería de Sistemas • UMSS",
       devLabel: "Especialidad",
       devValue: "Frontend Developer (Angular, TS, Ionic)",
       langLabel: "Idioma",
@@ -95,11 +95,11 @@ export const translations = {
       p1Title: "Sirvimos",
       p1Subtitle: "Plataforma de Páginas Web para Restaurantes",
       p1Badge: "Proyecto Destacado en WatchEye AB",
-      p1Desc: "Plataforma para la creación de páginas web personalizables para restaurantes basada en Angular. Mi principal aporte fue el desarrollo de componentes reutilizables que permiten construir páginas únicas mediante la combinación y personalización de módulos (Header, Menu, History, Footer, etc.).",
+      p1Desc: "Plataforma para la creación de páginas web personalizables para restaurantes basada en Angular. Mi principal aporte fue el desarrollo de componentes reutilizables y customizables que permiten construir páginas únicas mediante la combinación y personalización de módulos (Header, Menu, History, Footer, etc.).",
       p2Title: "Aplicación Móvil de Saneamiento de Aguas",
       p2Subtitle: "App Móvil Offline-First para Campo",
       p2Badge: "Desarrollado para DTIC - UMSS",
-      p2Desc: "Aplicación desarrollada para el Departamento de Tecnologías de la Información y Comunicación (DTIC) de la Universidad Mayor de San Simón. Permite registrar información de campo sin conexión a Internet y sincronizar automáticamente los datos cuando existe conectividad.",
+      p2Desc: "Aplicación desarrollada para el Departamento de Tecnologías de la Información y Comunicación (DTIC) de la Universidad Mayor de San Simón. Desarrollada para el Centro de Aguas y Saneamiento Ambiental (CASA), esta aplicación permite registrar información de campo sin conexión a Internet y sincronizar automáticamente los datos cuando existe conectividad dentro de la red de la unirsidad.",
       p3Title: "Portafolio Web Profesional",
       p3Subtitle: "Showcase de Proyectos y Habilidades",
       p3Badge: "Portafolio Personal",
@@ -139,7 +139,7 @@ export const translations = {
       titleFirst: "Filosofía &",
       titleLast: "Objetivos",
       phTitle: "Mi Forma de Trabajar",
-      phDesc: "Creo que el desarrollo de software va mucho más allá de escribir código funcional. Mi objetivo es construir aplicaciones que sean mantenibles, escalables y fáciles de evolucionar con el tiempo.",
+      phDesc: "Creo que el desarrollo de software va mucho más allá de escribir código funcional, debe satisfacer una demanda. Mi objetivo es construir aplicaciones que sean mantenibles, escalables y fáciles de evolucionar con el tiempo.",
       phSub: "Prioridades de Desarrollo",
       phItems: [
         "Arquitectura basada en componentes reutilizables.",
@@ -150,8 +150,8 @@ export const translations = {
         "Aprendizaje continuo y adopción de nuevas herramientas."
       ],
       goalsTitle: "Objetivos Profesionales",
-      g1: "Mi objetivo principal es consolidarme como Frontend Developer especializado en Angular y TypeScript, participando en el desarrollo de productos modernos que representen desafíos técnicos reales.",
-      g2: "Busco formar parte de equipos donde pueda aprender de desarrolladores con experiencia, aportar soluciones de calidad y seguir fortaleciendo mis conocimientos en arquitectura Frontend, rendimiento, accesibilidad y buenas prácticas de ingeniería de software.",
+      g1: "Mi objetivo principal es consolidarme como Fullstack Developer especializado en Angular y TypeScript, participando en el desarrollo de productos modernos que representen desafíos técnicos reales.",
+      g2: "Busco formar parte de equipos donde pueda aprender de desarrolladores con experiencia, aportar soluciones de calidad y seguir fortaleciendo mis conocimientos en arquitectura Frontend, Backend, rendimiento, accesibilidad y buenas prácticas de ingeniería de software.",
       gVisionTitle: "Visión a largo plazo:",
       gVisionDesc: "Evolucionar hacia un perfil con mayor responsabilidad técnica, participando en el diseño de arquitecturas Frontend, liderando iniciativas de desarrollo y contribuyendo a la creación de aplicaciones escalables de alto impacto."
     },
@@ -159,7 +159,7 @@ export const translations = {
       titleFirst: "¿Trabajamos",
       titleLast: "juntos?",
       loc: "Cochabamba, Bolivia",
-      desc: "Si buscas un Frontend Developer con experiencia profesional en Angular, TypeScript e Ionic, estaré encantado de conversar sobre cómo puedo aportar valor a tu equipo.",
+      desc: "Si buscas un Frontend Developer con experiencia profesional, estaré encantado de conversar sobre cómo puedo aportar valor a tu equipo.",
       sendEmail: "Enviar Correo"
     }
   },
